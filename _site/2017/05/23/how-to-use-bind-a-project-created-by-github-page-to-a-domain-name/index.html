@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>相关博客 - southeast-ideas</title>
+	<title>如何将GitHub Page项目与域名绑定 - southeast-ideas</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/reference/">
+	<link rel="canonical" href="/2017/05/23/how-to-use-bind-a-project-created-by-github-page-to-a-domain-name/">
 	<link rel="alternate" type="application/rss+xml" title="southeast-ideas" href="/feed.xml">
 	
-	<meta name="keywords" content="相关博客, southeast-ideas, 东南思想">
+	<meta name="keywords" content="如何将GitHub Page项目与域名绑定, southeast-ideas, 东南思想">
 	<meta name="description" content="东南思想">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -92,8 +92,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>相关博客</h1>
-		    <p>Post on  by <a href="/about">Michael Wang</a></p>
+		    <h1>如何将GitHub Page项目与域名绑定</h1>
+		    <p>Post on May 23, 2017 by <a href="/about">Michael Wang</a></p>
 		-->
 		    <h1>I was within and without.</h1>
     
@@ -104,7 +104,8 @@
 <div class="banner">
   <div class="container">
   	
-    	学而不思则罔，思而不学则殆。
+    	<a href="/categories/#建站-ref">建站</a>	/
+    	<a href="/tag/#教程-ref">教程</a>
     
   </div>
 </div>
@@ -194,79 +195,38 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">相关博客</h1>
+              <h1 class="post-title">如何将GitHub Page项目与域名绑定</h1>
               <!--
-                <p class="post-meta"></p>
+                <p class="post-meta">May 23, 2017 • Michael Wang</p>
               -->
-              <div class="meta">Posted on <span class="postdate"></span> By <a target="_blank" href="http://localhost:4000"></a></div>
+              <div class="meta">Posted on <span class="postdate">May 23, 2017</span> By <a target="_blank" href="http://localhost:4000">Michael Wang</a></div>
               <br />
             </header>
             <article class="post-content">
               <ul id="markdown-toc">
-  <li><a href="#走向架构师之路" id="markdown-toc-走向架构师之路">走向架构师之路</a></li>
-  <li><a href="#http协议详解" id="markdown-toc-http协议详解">HTTP协议详解</a></li>
-  <li><a href="#axis-20的入门" id="markdown-toc-axis-20的入门">Axis 2.0的入门</a></li>
-  <li><a href="#高爽coder" id="markdown-toc-高爽coder">高爽|Coder</a></li>
-  <li><a href="#一线码农" id="markdown-toc-一线码农">[一线码农]</a></li>
-  <li><a href="#通向架构师的道路" id="markdown-toc-通向架构师的道路">[通向架构师的道路]</a></li>
-  <li><a href="#冯立彬的博客" id="markdown-toc-冯立彬的博客">[冯立彬的博客]</a></li>
-  <li><a href="#汪海的实验室" id="markdown-toc-汪海的实验室">[汪海的实验室]</a></li>
-  <li><a href="#byvoid" id="markdown-toc-byvoid">[Byvoid]</a></li>
-  <li><a href="#rowen的专栏" id="markdown-toc-rowen的专栏">[rowen的专栏]</a></li>
-  <li><a href="#淘宝团队的博客" id="markdown-toc-淘宝团队的博客">[淘宝团队的博客]</a></li>
-  <li><a href="#axman" id="markdown-toc-axman">[axman]</a></li>
-  <li><a href="#旺仔专栏" id="markdown-toc-旺仔专栏">[旺仔专栏]</a></li>
+  <li><a href="#创建cname文件" id="markdown-toc-创建cname文件">创建CNAME文件</a></li>
+  <li><a href="#在域名控制台下添加解析以阿里云万网为例" id="markdown-toc-在域名控制台下添加解析以阿里云万网为例">在域名控制台下添加解析（以阿里云万网为例）</a></li>
 </ul>
 
-<h1 id="走向架构师之路">走向架构师之路</h1>
-<p><a href="http://blog.csdn.net/cutesource/article/details/4901506">走向架构师之路</a></p>
+<h2 id="创建cname文件">创建CNAME文件</h2>
 
-<h1 id="http协议详解">HTTP协议详解</h1>
-<p><a href="http://www.jmarshall.com/easy/http/">HTTP协议详解</a></p>
+<p>在项目的根目录下添加<a href="">CNAME</a>文件，在文件中填写要绑定的域名，比如我的项目欲通过<code>blog.southeast-ideas.com</code>打开，那我就在CNAME文件中录入</p>
 
-<h1 id="axis-20的入门">Axis 2.0的入门</h1>
-<p>[曹胜欢]<a href="http://blog.csdn.net/csh624366188/article/details/8362696">http://blog.csdn.net/csh624366188/article/details/8362696</a></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">blog.southeast-ideas.com</code></pre></figure>
 
-<h1 id="高爽coder">高爽|Coder</h1>
-<p>这个人的博客对java底层的东西研究比较深入。
-<a href="http://blog.csdn.net/ghsau/article/details/20395681">http://blog.csdn.net/ghsau/article/details/20395681</a></p>
+<p>即可。</p>
 
-<h1 id="一线码农">[一线码农]</h1>
-<p>算法入门和分布式缓存入门
-<a href="http://www.cnblogs.com/huangxincheng/archive/2011/11/14/2249046.html">http://www.cnblogs.com/huangxincheng/archive/2011/11/14/2249046.html</a></p>
+<h2 id="在域名控制台下添加解析以阿里云万网为例">在域名控制台下添加解析（以阿里云万网为例）</h2>
 
-<h1 id="通向架构师的道路">[通向架构师的道路]</h1>
-<p>说实话没仔细看过这些博客，纯粹被标题吸引
-<a href="http://blog.csdn.net/lifetragedy">http://blog.csdn.net/lifetragedy</a>
-http://blog.csdn.net/lifetragedy</p>
+<ul>
+  <li>在域名控制台，添加一条<code>记录类型</code>为<code>CNAME</code>的解析记录</li>
+  <li>要将域名解析为<code>www.example.com</code>，在<code>主机记录(RR)</code>处填写<code>www</code>即可。（比如要以“blog.southeast-ideas.com”的网址访问项目，则主机记录(RR)填写为“blog”）</li>
+  <li><code>记录值</code>为<code>username.github.io.</code></li>
+</ul>
 
-<h1 id="冯立彬的博客">[冯立彬的博客]</h1>
-<p>话说这哥们是个大牛，以前看过一些文章。
-<a href="http://blog.csdn.net/fenglibing">http://blog.csdn.net/fenglibing</a></p>
+<p><img src="/styles/images/blog_images/20170523_00.png" alt="域名解析记录示例" /></p>
 
-<h1 id="汪海的实验室">[汪海的实验室]</h1>
-<p>一个14年毕业的学生，差距啊！
-<a href="http://blog.csdn.net/pleasecallmewhy/article/details/8923725">http://blog.csdn.net/pleasecallmewhy/article/details/8923725</a></p>
-
-<h1 id="byvoid">[Byvoid]</h1>
-<p>Linux中文输入法，node.js开发指南的原作者。14年大学本科清华毕业
-<a href="https://www.byvoid.com/">https://www.byvoid.com/</a></p>
-
-<h1 id="rowen的专栏">[rowen的专栏]</h1>
-<p>数据挖掘的基础入门
-<a href="http://blog.csdn.net/luowen3405/article/details/6331763">http://blog.csdn.net/luowen3405/article/details/6331763</a></p>
-
-<h1 id="淘宝团队的博客">[淘宝团队的博客]</h1>
-<p>淘宝团队的积累
-<a href="http://www.searchtb.com/">http://www.searchtb.com/</a></p>
-
-<h1 id="axman">[axman]</h1>
-<p>多线程相关写的比较好
-<a href="http://blog.csdn.net/axman/article/category/894625">http://blog.csdn.net/axman/article/category/894625</a></p>
-
-<h1 id="旺仔专栏">[旺仔专栏]</h1>
-<p>Windows下FFmpeg快速入门
-<a href="http://blog.csdn.net/hemingwang0902/article/details/4382429">http://blog.csdn.net/hemingwang0902/article/details/4382429</a></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">如果该域名下还绑定有其他记录，则可能存在冲突，此时需要修改其他记录的“主机记录”或“记录类型”以解决冲突。</code></pre></figure>
 
             </article>
         </div>
@@ -278,7 +238,7 @@ http://blog.csdn.net/lifetragedy</p>
 
 
   <!--PC版-->
-<div id="SOHUCS" sid=""></div>
+<div id="SOHUCS" sid="170523201000"></div>
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
 window.changyan.api.config({

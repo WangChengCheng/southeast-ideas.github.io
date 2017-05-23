@@ -2,12 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <description>Actually, less is more!</description>
+    <description>不积跬步 无以至千里</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 23 May 2017 16:22:24 +0800</pubDate>
-    <lastBuildDate>Tue, 23 May 2017 16:22:24 +0800</lastBuildDate>
+    <pubDate>Tue, 23 May 2017 21:06:44 +0800</pubDate>
+    <lastBuildDate>Tue, 23 May 2017 21:06:44 +0800</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>如何将GitHub Page项目与域名绑定</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#创建cname文件&quot; id=&quot;markdown-toc-创建cname文件&quot;&gt;创建CNAME文件&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#在域名控制台下添加解析以阿里云万网为例&quot; id=&quot;markdown-toc-在域名控制台下添加解析以阿里云万网为例&quot;&gt;在域名控制台下添加解析（以阿里云万网为例）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;创建cname文件&quot;&gt;创建CNAME文件&lt;/h2&gt;
+
+&lt;p&gt;在项目的根目录下添加&lt;a href=&quot;&quot;&gt;CNAME&lt;/a&gt;文件，在文件中填写要绑定的域名，比如我的项目欲通过&lt;code&gt;blog.southeast-ideas.com&lt;/code&gt;打开，那我就在CNAME文件中录入&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;blog.southeast-ideas.com&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;即可。&lt;/p&gt;
+
+&lt;h2 id=&quot;在域名控制台下添加解析以阿里云万网为例&quot;&gt;在域名控制台下添加解析（以阿里云万网为例）&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在域名控制台，添加一条&lt;code&gt;记录类型&lt;/code&gt;为&lt;code&gt;CNAME&lt;/code&gt;的解析记录&lt;/li&gt;
+  &lt;li&gt;要将域名解析为&lt;code&gt;www.example.com&lt;/code&gt;，在&lt;code&gt;主机记录(RR)&lt;/code&gt;处填写&lt;code&gt;www&lt;/code&gt;即可。（比如要以“blog.southeast-ideas.com”的网址访问项目，则主机记录(RR)填写为“blog”）&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;记录值&lt;/code&gt;为&lt;code&gt;username.github.io.&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/styles/images/blog_images/20170523_00.png&quot; alt=&quot;域名解析记录示例&quot; /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;如果该域名下还绑定有其他记录，则可能存在冲突，此时需要修改其他记录的“主机记录”或“记录类型”以解决冲突。&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+</description>
+        <pubDate>Tue, 23 May 2017 20:10:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/05/23/how-to-use-bind-a-project-created-by-github-page-to-a-domain-name/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/05/23/how-to-use-bind-a-project-created-by-github-page-to-a-domain-name/</guid>
+        
+        <category>教程</category>
+        
+        
+        <category>建站</category>
+        
+      </item>
     
       <item>
         <title>如何使用LessOrMore这个Jekyll模版</title>

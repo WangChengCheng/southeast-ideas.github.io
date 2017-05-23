@@ -1,5 +1,5 @@
 <!--PC和WAP自适应版-->
-<div id="SOHUCS" ></div> 
+<div id="SOHUCS" sid="{{ page.source_id }}"></div> 
 <script type="text/javascript"> 
 (function(){ 
 	var appid = 'cyt1Fdc3X'; 

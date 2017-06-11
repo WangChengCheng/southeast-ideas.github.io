@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>我的书单 - southeast-ideas</title>
+	<title>Echarts使用笔记 - southeast-ideas</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/books/">
+	<link rel="canonical" href="/2017/06/11/Echarts-use-note/">
 	<link rel="alternate" type="application/rss+xml" title="southeast-ideas" href="/feed.xml">
 	
-	<meta name="keywords" content="我的书单, southeast-ideas, 东南思想">
+	<meta name="keywords" content="Echarts使用笔记, southeast-ideas, 东南思想">
 	<meta name="description" content="东南思想">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -92,8 +92,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>我的书单</h1>
-		    <p>Post on  by <a href="/about">Michael Wang</a></p>
+		    <h1>Echarts使用笔记</h1>
+		    <p>Post on Jun 11, 2017 by <a href="/about">Michael Wang</a></p>
 		-->
 		    <h1>I was within and without.</h1>
     
@@ -104,7 +104,8 @@
 <div class="banner">
   <div class="container">
   	
-    	学而不思则罔，思而不学则殆。
+    	<a href="/categories/#建站-ref">建站</a>	/
+    	<a href="/tag/#教程 Eharts-ref">教程 Eharts</a>
     
   </div>
 </div>
@@ -209,33 +210,134 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">我的书单</h1>
+              <h1 class="post-title">Echarts使用笔记</h1>
               <!--
-                <p class="post-meta"></p>
+                <p class="post-meta">Jun 11, 2017 • Michael Wang</p>
               -->
-              <div class="meta">Posted on <span class="postdate"></span> By <a target="_blank" href="http://localhost:4000"></a></div>
+              <div class="meta">Posted on <span class="postdate">Jun 11, 2017</span> By <a target="_blank" href="http://localhost:4000">Michael Wang</a></div>
               <br />
             </header>
             <article class="post-content">
               <ul id="markdown-toc">
-  <li><a href="#2016书单" id="markdown-toc-2016书单">2016书单</a></li>
+  <li><a href="#x轴项目名称处理" id="markdown-toc-x轴项目名称处理">x轴项目名称处理</a></li>
+  <li><a href="#配置多个series" id="markdown-toc-配置多个series">配置多个series</a></li>
 </ul>
 
-<h2 id="2016书单">2016书单</h2>
+<h3 id="x轴项目名称处理">x轴项目名称处理</h3>
+<p>x轴每项的名称过长时，可以通过倾斜项目名称，且项目名称可以通过部分名称取代全程时，可以在xAxis-axisLabel-formatter中进行格式的设置。</p>
 
-<ul>
-  <li>《Think in java 4th》</li>
-  <li>《鸟哥的Linux私房菜基础学习篇-第三版》</li>
-  <li>《重构》</li>
-  <li>《Getting real》</li>
-  <li>《深入JVM虚拟机》</li>
-  <li>《Head first设计模式》</li>
-  <li>《算法(第四版)》</li>
-  <li>《Maven实战》</li>
-  <li>《HTTP协议详解》</li>
-  <li>《TCP/IP协议详解-卷一》</li>
-  <li>《阿弥陀佛么么哒》</li>
-</ul>
+<pre><code>
+	option = {
+	    title : {
+	        text: '',
+	        top : 'bottom',
+	        left : 'center',
+	        textStyle: {
+	        color: '#333',
+	        fontStyle: 'normal',
+	        fontWeight: 'lighter',
+	        fontFamily: 'sans-serif',
+	        fontSize: 15,
+	        },
+	    },
+	    tooltip : {
+	        trigger: 'axis',
+	        axisPointer: {
+	            type: 'shadow'
+	        }       
+	    },
+	    xAxis : [
+	        {
+	            axisLabel: {
+	                rotate: 315,//倾斜角度
+	                formatter: function(value){//对显示的内容进行设置
+	                    var val;
+	                    val = value.substring(0,4);
+	                    return val;
+	                }
+	            },
+	            type : 'category',
+	            data : [],
+	            axisTick: {
+	                alignWithLabel: true
+	            }
+	        }
+	    ],
+	    yAxis : [
+	        {
+	            type : 'value'
+	        }
+	    ],
+	    series : [
+	        {
+	            label: {
+			                normal: {
+			                    show: true,
+			                    position: 'top',
+			                    formatter: function(obj){
+			                        return obj.value.toFixed(2);
+			                    },
+			                },
+			            },
+	            name:'直接访问',
+	            type:'bar',
+	            barWidth: '60%',
+	            data:[]
+	        }
+	    ]
+	};
+</code></pre>
+<h3 id="配置多个series">配置多个series</h3>
+<p>当需要设置多个series时（比如折线图中有多条不同的曲线，每条曲线为一个series），可以先设置变量<code>var series = [];</code>，从后台取得数据后，对每个series进行赋值、设置；对于<code>legend</code>同理。</p>
+
+<pre><code>
+	var myChart = echarts.init(document.getElementById('echarts_id'));
+	var series=[];
+	var option = {
+		//其他配置项...
+		series: series,
+		xAxis:
+		//其他配置项...
+	}
+	myChart.setOption(option);
+	//ajax 异步加载配置数据项  
+	function loadOption(item, unit, time)  
+	{
+	    $.ajax({  
+	        url: '',
+	        type: 'get',
+	        dataType: 'json',
+	        async: false,
+	        success: function (dataMap) {  
+	            if (dataMap)  
+	            {  
+	                if (dataMap.seriesData == null) {  
+	                    series = [];
+						option.xAxis[0].data = [];//xAxis配置项为数组时，即xAxis后是中括号[]，若为{}，则应该写成option.xAxis.data = [];
+	                }  
+	                else {                 	
+	                	for(var i = 0;i &lt; dataMap.seriesName.length;i++){
+					       series.push({
+					            name: dataMap.seriesName[i],
+					            type: 'line',
+					            smooth: true,
+					            data: dataMap.seriesData[i]
+					        });
+					    } 
+	                } 
+	                myChart.hideLoading();
+	                myChart.setOption(option,true);  
+	                series=[];//将series变量置空，否则之后的结果会在之前的结果集合上累加
+	            }  
+	        },  
+	        error: function ()  
+	        {  
+	            alert("请求失败!");  
+	        }  
+	    })  
+	}
+
+</code></pre>
 
             </article>
         </div>
@@ -247,7 +349,7 @@
 
 
   <!--PC版-->
-<div id="SOHUCS" sid=""></div>
+<div id="SOHUCS" sid="170611115300"></div>
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
 window.changyan.api.config({

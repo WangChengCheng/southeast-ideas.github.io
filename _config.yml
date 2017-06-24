@@ -1,15 +1,15 @@
 # Site settings
 name: southeast-ideas
-email: wangcc0106@gmail.com #luoyan35714@126.com
-author: Michael Wang #Freud Kang
+email: wangcc0106@gmail.com # luoyan35714@126.com
+author: Michael Wang # Freud Kang
 url: http://www.southeast-ideas.com
-resume_site: #http://www.hifreud.com/Resume.io/
+# resume_site: #http://www.hifreud.com/Resume.io/
 github: https://github.com/WangChengCheng/
 baseurl: ""
 description: 不积跬步 无以至千里
 meta_description: 东南思想 #康志华;个人博客;学而不思则罔;思而不学则殆;生命不止;折腾不休
-motto: I was within and without.
-banner: 学而不思则罔，思而不学则殆。
+motto: 每个人总以为自己是世界的中心。
+banner: 己所不欲勿施于人
 
 #permalink: /:categories/:year/:month/:day/:title/
 permalink: /:year/:month/:day/:title/

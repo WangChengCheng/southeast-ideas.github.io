@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>如何将GitHub Page项目与域名绑定 - southeast-ideas</title>
+	<title>Java——Comparator - southeast-ideas</title>
 
 	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
 	<link rel="icon" href="/styles/images/favicon.jpg">
@@ -13,10 +13,10 @@
 	<link rel="stylesheet" href="/styles/css/index.css">
 	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/css/syntax.css">
-	<link rel="canonical" href="/2017/05/23/how-to-use-bind-a-project-created-by-github-page-to-a-domain-name/">
+	<link rel="canonical" href="/2017/09/17/Comparator/">
 	<link rel="alternate" type="application/rss+xml" title="southeast-ideas" href="/feed.xml">
 	
-	<meta name="keywords" content="如何将GitHub Page项目与域名绑定, southeast-ideas, 东南思想">
+	<meta name="keywords" content="Java——Comparator, southeast-ideas, 东南思想">
 	<meta name="description" content="东南思想">
 
 	<script src="/styles/js/jquery.min.js"></script>
@@ -92,8 +92,8 @@
   <div class="container">
   	
   		<!--
-		    <h1>如何将GitHub Page项目与域名绑定</h1>
-		    <p>Post on May 23, 2017 by <a href="/about">Michael Wang</a></p>
+		    <h1>Java——Comparator</h1>
+		    <p>Post on Sep 17, 2017 by <a href="/about">Michael Wang</a></p>
 		-->
 		    <h1>每个人总以为自己是世界的中心。</h1>
     
@@ -104,8 +104,8 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/categories/#建站-ref">建站</a>	/
-    	<a href="/tag/#教程-ref">教程</a>
+    	<a href="/categories/#Java-ref">Java</a>	/
+    	<a href="/tag/#Java Sort 排序-ref">Java Sort 排序</a>
     
   </div>
 </div>
@@ -225,38 +225,134 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">如何将GitHub Page项目与域名绑定</h1>
+              <h1 class="post-title">Java——Comparator</h1>
               <!--
-                <p class="post-meta">May 23, 2017 • Michael Wang</p>
+                <p class="post-meta">Sep 17, 2017 • Michael Wang</p>
               -->
-              <div class="meta">Posted on <span class="postdate">May 23, 2017</span> By <a target="_blank" href="http://localhost:4000">Michael Wang</a></div>
+              <div class="meta">Posted on <span class="postdate">Sep 17, 2017</span> By <a target="_blank" href="http://localhost:4000">Michael Wang</a></div>
               <br />
             </header>
             <article class="post-content">
               <ul id="markdown-toc">
-  <li><a href="#创建cname文件" id="markdown-toc-创建cname文件">创建CNAME文件</a></li>
-  <li><a href="#在域名控制台下添加解析以阿里云万网为例" id="markdown-toc-在域名控制台下添加解析以阿里云万网为例">在域名控制台下添加解析（以阿里云万网为例）</a></li>
+  <li><a href="#题目来源" id="markdown-toc-题目来源">题目来源</a></li>
+  <li><a href="#code" id="markdown-toc-code">Code</a></li>
 </ul>
 
-<h2 id="创建cname文件">创建CNAME文件</h2>
+<h3 id="题目来源">题目来源</h3>
+<p>CCF 201709试题第2题</p>
 
-<p>在项目的根目录下添加<a href="">CNAME</a>文件，在文件中填写要绑定的域名，比如我的项目欲通过<code>blog.southeast-ideas.com</code>打开，那我就在CNAME文件中录入</p>
+<h3 id="code">Code</h3>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">blog.southeast-ideas.com</code></pre></figure>
+<pre><code class="language-java">package test;
 
-<p>即可。</p>
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 
-<h2 id="在域名控制台下添加解析以阿里云万网为例">在域名控制台下添加解析（以阿里云万网为例）</h2>
+public class Event{
+	private int keyNo;
+	private int time;
+	private int type; //Event Type: 0--&gt;return, 1--&gt;borrow
+	
+	public static void main(String[] args) {
+		List&lt;Event&gt; lt = new ArrayList();
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int K = sc.nextInt();
+		for(int i = 0; i &lt; K; i++) {
+			int w = sc.nextInt();
+			int s = sc.nextInt();
+			int c = sc.nextInt();
+			Event event1 = new Event(w, s, 1);//Borrow As An Enevt
+			Event event2 = new Event(w, s + c, 0);//Return As An Enevt
+			lt.add(event1);
+			lt.add(event2);
+		}
+		//Sort
+		Collections.sort(lt, new Comparator&lt;Event&gt;() {
+			@Override
+			public int compare(Event o1, Event o2) {
+				Event e1 = (Event) o1;
+				Event e2 = (Event) o2;
+				if (e1.getTime() &gt; e2.getTime())
+					return 1;
+				else if(e1.getTime() == e2.getTime()) {
+					if(e1.getType() &gt; e2.getType())
+						return 1;
+					else if(e1.getType() == e2.getType()) {
+						if(e1.getKeyNo() &gt; e2.getKeyNo())
+							return 1;
+						else if(e1.getKeyNo() == e2.getKeyNo())
+							return 0;
+						else
+							return -1;
+					}
+					else
+						return -1;
+				}
+				else
+					return -1;
+			}
+		});
+		//OutPut
+		List&lt;Integer&gt; stat = new ArrayList&lt;&gt;();
+		for(int i = 1; i &lt;= N; i++)
+			stat.add(i);
+		for(Event e: lt){
+			if(e.getType() == 1) {//Borrow 借钥匙
+				int ind = stat.indexOf(e.getKeyNo());//获得钥匙的位置
+				stat.set(ind, -1);//将该位置置为-1
+			}
+			else if(e.getType() == 0) {//Return 还钥匙
+				int ind = stat.indexOf(-1);
+				stat.set(ind, e.keyNo);
+			}
+		}
+		for(Integer s: stat)
+			System.out.print(s + " ");
+		
+	}
 
-<ul>
-  <li>在域名控制台，添加一条<code>记录类型</code>为<code>CNAME</code>的解析记录</li>
-  <li>要将域名解析为<code>www.example.com</code>，在<code>主机记录(RR)</code>处填写<code>www</code>即可。（比如要以“blog.southeast-ideas.com”的网址访问项目，则主机记录(RR)填写为“blog”）</li>
-  <li><code>记录值</code>为<code>username.github.io.</code></li>
-</ul>
+	
+	
+	public Event(int keyNo, int time, int type) {
+		this.keyNo = keyNo;
+		this.time = time;
+		this.type = type;
+	}
 
-<p><img src="/styles/images/blog_images/20170523_00.png" alt="域名解析记录示例" /></p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">如果该域名下还绑定有其他记录，则可能存在冲突，此时需要修改其他记录的“主机记录”或“记录类型”以解决冲突。</code></pre></figure>
+	public int getKeyNo() {
+		return keyNo;
+	}
+
+	public void setKeyNo(int keyNo) {
+		this.keyNo = keyNo;
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+
+}
+
+	
+</code></pre>
 
             </article>
         </div>
@@ -268,7 +364,7 @@
 
 
   <!--PC版-->
-<div id="SOHUCS" sid="170523201000"></div>
+<div id="SOHUCS" sid="170917190400"></div>
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
 window.changyan.api.config({

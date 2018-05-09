@@ -11,7 +11,7 @@ source_id: 180509110400
 * content
 {:toc}
 ### 0.引言
->&emsp;&emsp;[LeetCode P169](https://leetcode.com/problems/majority-element/description/)中，题意可以转化为输出所给数组排序后第$\lfloor n/2 \rfloor$个元素。
+&emsp;&emsp;[LeetCode P169](https://leetcode.com/problems/majority-element/description/)中，题意可以转化为输出所给数组排序后第$\lfloor n/2 \rfloor$个元素。
 所以使用快排+二分的方法进行查找（即只要找到排序后数组的第$\lfloor n/2 \rfloor$个元素，就不再往下排序）。但是使用（JDK 1.8）Arrays.sort()方法对数组全部排序也会比我的实现方式快好多。所以查看了Arrays.sort()的源码。
 发现其并非使用传统经典的快速排序，而是使用Dual-Pivot QuickSort（双轴快速排序）。
 
@@ -72,12 +72,13 @@ dual_pivot_quicksort(A,left,right) // sort A[left..right]
 看起来主要的区别就是经典快排递归的时候把输入数组分两段，而Dual-Pivot则分三段，就这么简单，那为什么这就快了呢？
 其实如果按照元素比较次数来比较的话，Dual-Pivot快排元素比较次数其实比经典快排要多:
 > 1.5697nlnn VS 1.7043nlnn
+
 理论跟实际情况不符合的时候，如果实际情况没有错，那么就是理论错了。
 
 ### 3.CPU与内存
 &emsp;&emsp;要理解上面的问题，先介绍点背景知识。我们平常很少考虑过```CPU的速度```，```内存的速度```，```CPU和内存速度是否匹配```的问题。
 
-其实它们是不匹配的。
+> 其实它们是不匹配的。
 
 距统计在过去的25年里面，CPU的速度平均每年增长46%, 而内存的带宽每年只增长37%，那么经过25年的这种不均衡发展，它们之间的差距已经蛮大了。
 
@@ -100,8 +101,12 @@ dual_pivot_quicksort(A,left,right) // sort A[left..right]
 在这种新的算法下面经典快排和Dual-Pivot快排的```扫描元素个数```分别为:
 
 > 1.5697nlnn VS 1.4035nlnn
+
 也就是说经典快排确实进行了更多的元素扫描动作，因此也就比较慢。在这种新的算法下面，Dual-Pivot快排比经典快排t节省了12%的元素扫描，从实验来看节省了10%的时间。
 
-## 参考
+## 参考出处
 [新的快速排序算法: 《Dual-Pivot QuickSort》阅读笔记](https://www.jianshu.com/p/2c6f79e8ce6e)
+
 [Java源码解析-DualPivotQuicksort](https://blog.csdn.net/xjyzxx/article/details/18465661)
+
+[DualPivotQuicksort](http://kriche.com.ar/root/programming/spaceTimeComplexity/DualPivotQuicksort.pdf)

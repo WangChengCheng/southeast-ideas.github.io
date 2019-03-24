@@ -14,6 +14,7 @@ source_id: 190324174100
 使用spring-boot-starter-security对Spring Boot项目增加接口验证。
 
 >添加如下依赖，再次启动项目直接访问接口时，会出现身份验证接口。
+
 ```xml
 <dependencies>
   ...
@@ -24,7 +25,9 @@ source_id: 190324174100
   ...
 </dependencies>
 ```
+
 >可以通过如下配置关闭Spring Security
+
 ```properties
 security.basic.enabled=false
 ```

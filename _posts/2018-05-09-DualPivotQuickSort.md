@@ -2,7 +2,7 @@
 layout: post
 title:  Dual-Pivot QuickSort
 date:   2018-05-09 11:04:00 +0800
-categories: Algorithm
+categories: Data Structures and Algorithm
 tag: Algorithm
 author: Michael Wang
 source_id: 180509110400
